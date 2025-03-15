@@ -4,6 +4,7 @@ import librosa.display
 import matplotlib.pyplot as plt
 import numpy as np
 import base64
+st.set_page_config(page_title="CAR-UNet Speech Enhancement", page_icon="🎤")
 
 
 # Sample audio file paths (Replace with actual paths)
