@@ -49,7 +49,7 @@ def plot_spectrogram(audio_path, title):
     plt.close()
 
 # Page Title
-st.markdown('<h1 style="text-align:center; color:#ff4b4b;">--Speech Enhancement--</h1>', unsafe_allow_html=True)
+st.markdown('<h1 style="text-align:center; color:#ff4b4b;">Speech Enhancement</h1>', unsafe_allow_html=True)
 
 # Navigation Menu
 menu_options = ["Home", "Result", "Paper", "Code"]
