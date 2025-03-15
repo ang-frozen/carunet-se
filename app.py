@@ -4,6 +4,8 @@ import librosa.display
 import matplotlib.pyplot as plt
 import numpy as np
 import base64
+import requests
+
 st.set_page_config(page_title="CAR-UNet", page_icon="🎤")
 
 
@@ -262,7 +264,6 @@ elif st.session_state.page == "Paper":
 
     
     # Modified link to the Google Drive PDF
-    pdf_durl = "https://drive.google.com/uc?export=download&id=1TofjIouhm3oin1NwVlMopJDO4VMo6HsZ"
     pdf_url = "https://drive.google.com/file/d/1TofjIouhm3oin1NwVlMopJDO4VMo6HsZ/preview"
 
 
@@ -270,7 +271,23 @@ elif st.session_state.page == "Paper":
     st.markdown(f'<iframe src="{pdf_url}" width="100%" height="600px"></iframe>', unsafe_allow_html=True)
 
     # Optional: Provide Download Button
-    st.download_button(label="📄 Download Paper", data=open(pdf_durl, "rb"), file_name="Abstract.pdf", mime="application/pdf",type='primary',)
+    pdf_durl = "https://drive.google.com/uc?export=download&id=1TofjIouhm3oin1NwVlMopJDO4VMo6HsZ"
+
+    # Fetch the PDF file from Google Drive using requests
+    response = requests.get(pdf_durl)
+
+    # Check if the request was successful
+    if response.status_code == 200:
+        # Create the download button with the fetched PDF file
+        st.download_button(
+            label="📄 Download Paper",
+            data=response.content,  # PDF content in binary form
+            file_name="Research_Paper.pdf",
+            mime="application/pdf",
+            type="primary"
+        )
+    else:
+        st.error("Error fetching the PDF file.")
 
 
 elif st.session_state.page == "Code":
