@@ -2,4 +2,3 @@ streamlit
 librosa
 matplotlib
 numpy
-base64
