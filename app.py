@@ -261,14 +261,11 @@ elif st.session_state.page == "Paper":
     st.subheader("Research Paper")
 
     # PDF file path (Replace with actual file path)
-    pdf_path = "Abstract.pdf"
+    pdf_path = "https://drive.google.com/file/d/1TofjIouhm3oin1NwVlMopJDO4VMo6HsZ/view?usp=drive_link"
 
     # Display the PDF with iframe
-    with open(pdf_path, "rb") as f:
-        base64_pdf = base64.b64encode(f.read()).decode("utf-8")
-    
-    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600px"></iframe>'
-    st.markdown(pdf_display, unsafe_allow_html=True)
+    st.markdown(f'<iframe src="{pdf_path}" width="100%" height="600px"></iframe>', unsafe_allow_html=True)
+
 
     # Optional: Provide Download Button
     st.download_button(label="📄 Download Paper", data=open(pdf_path, "rb"), file_name="Abstract.pdf", mime="application/pdf",type='primary',)
