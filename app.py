@@ -261,7 +261,7 @@ elif st.session_state.page == "Paper":
     st.subheader("Research Paper")
 
     # PDF file path (Replace with actual file path)
-    pdf_path = "https://drive.google.com/file/d/1TofjIouhm3oin1NwVlMopJDO4VMo6HsZ/view?usp=drive_link"
+    pdf_path = "https://drive.google.com/file/d/1TofjIouhm3oin1NwVlMopJDO4VMo6HsZ/view?usp=sharing"
 
     # Display the PDF with iframe
     st.markdown(f'<iframe src="{pdf_path}" width="100%" height="600px"></iframe>', unsafe_allow_html=True)
