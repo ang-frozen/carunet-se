@@ -1,0 +1,19 @@
+name: Every 5 Hours Empty Commit
+
+on:
+  schedule:
+    - cron: '0 */5 * * *'  # Every 5th hour (UTC)
+
+jobs:
+  empty-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create empty commit
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git commit --allow-empty -m "chore: 5-hour empty commit"
+          git push
