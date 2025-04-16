@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '0 */5 * * *'  # Every 5th hour (UTC)
 
+permissions:
+  contents: write  # ✅ allow pushing to the repo
+
 jobs:
   empty-commit:
     runs-on: ubuntu-latest
